@@ -104,3 +104,60 @@ def moveZeroes(self, nums: List[int]) -> None:
             nums[noZero] = temp
             noZero += 1
         i += 1
+
+
+# Two Sum
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+    dic = {}
+    i = 0
+    while nums[i] not in dic:
+        dic[target - nums[i]] = i
+        i += 1
+    return [i, dic[nums[i]]]
+
+
+# Valid Sudoku
+def isValidSudoku(self, board: List[List[str]]) -> bool:
+    dicForRow = {}
+    dicForCol = {0: {}, 1: {}, 2: {}, 3: {}, 4: {}, 5: {}, 6: {}, 7: {}, 8: {}}
+    dicForSq = {0: {}, 1: {}, 2: {}}
+    i = 0
+    while i < 9:
+        j = 0
+        while j < 9:
+            if board[i][j] != ".":
+                if board[i][j] in dicForRow:
+                    return False
+                else:
+                    dicForRow[board[i][j]] = 1
+                if board[i][j] in dicForCol[j]:
+                    return False
+                else:
+                    dicForCol[j][board[i][j]] = 1
+                if board[i][j] in dicForSq[j // 3]:
+                    return False
+                else:
+                    dicForSq[j // 3][board[i][j]] = 1
+            j += 1
+        dicForRow.clear()
+        i += 1
+        if i == 3 or i == 6:
+            dicForSq.clear()
+            dicForSq = {0: {}, 1: {}, 2: {}}
+    return True
+
+
+# Rotate Image
+def rotate(self, matrix: List[List[int]]) -> None:
+    n = len(matrix) - 1
+    i = 0
+    while i < (n + 1) // 2:
+        j = i
+        while j < n - i:
+            temp = matrix[i][j]
+            matrix[i][j] = matrix[n - j][i]
+            matrix[n - j][i] = matrix[n - i][n - j]
+            matrix[n - i][n - j] = matrix[j][n - i]
+            matrix[j][n - i] = temp
+            j += 1
+        i += 1
