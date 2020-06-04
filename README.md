@@ -1,8 +1,8 @@
 # some leetcode solutions
 
-This is the collection of some leetcode problems' solutions. The problems are from the collection of top interview questions.
+This is the collection of some leetcode problems' solutions. The problems are from the collections of top interview questions.
 
-Here is the URLs:
+The URLs:
 
 https://leetcode.com/explore/interview/card/top-interview-questions-easy/
 
@@ -11,9 +11,8 @@ https://leetcode.com/explore/interview/card/top-interview-questions-medium/
 https://leetcode.com/explore/interview/card/top-interview-questions-hard/
 
 It is just a collection for myself, so don't take it seriously, it may have some issues, and the solutions may not be the best.
-If you learn something from it, that would be good, if not, that would be terrific, as you have understood all of these! 
-(Actually I think most of you are better than me, I am only a rookie.)
+If you learn something from it, that would be good, if not, terrific! As you have understood all of these! 
 
-If you find any issue and want to issue me, please.
+If you find any issue or a better solution, and wanna to tell me, please.
 
 Anyway, god bless you, and god bless me to get a good job (LOL).
