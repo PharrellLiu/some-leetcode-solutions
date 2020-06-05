@@ -92,3 +92,105 @@ def isPalindrome(self, s: str) -> bool:
         i += 1
         j -= 1
     return True
+
+
+# String to Integer (atoi)
+def myAtoi(self, str: str) -> int:
+    s = str
+    if s == '':
+        return 0
+    s = s.strip()
+    if s == '':
+        return 0
+    ans = 0
+
+    def cal(i):
+        res = 0
+        while i < len(s):
+            if s[i].isdigit():
+                res = res * 10 + int(s[i])
+                i += 1
+            else:
+                break
+        return res
+
+    if s[0] in '-+':
+        minus = 1
+        if s[0] == '-':
+            minus = -1
+        ans = minus * cal(1)
+    if s[0].isdigit():
+        ans = cal(0)
+    if ans < -2147483648:
+        return -2147483648
+    if ans > 2147483647:
+        return 2147483647
+    return ans
+
+
+# Implement strStr()
+def strStr(self, haystack: str, needle: str) -> int:
+    # KMP should be the best, but I still don't understand it
+    if needle == '':
+        return 0
+    i = 0
+    while i < len(haystack) - len(needle) + 1:
+        while i < len(haystack) and haystack[i] != needle[0]:
+            i += 1
+        if i < len(haystack):
+            if haystack[i:i + len(needle)] == needle:
+                return i
+            else:
+                i += 1
+    return -1
+
+
+# Count and Say
+def countAndSay(self, n: int) -> str:
+    if n == 1:
+        return '1'
+    s = '1'
+    i = 2
+    while i <= n:
+        newS = ''
+        count = 1
+        j = 1
+        while j < len(s):
+            if s[j] == s[j - 1]:
+                count += 1
+            else:
+                newS += str(count)
+                newS += s[j - 1]
+                count = 1
+            j += 1
+        newS += str(count)
+        newS += s[j - 1]
+        s = newS
+        i += 1
+    return s
+
+
+# Longest Common Prefix
+def longestCommonPrefix(self, strs: List[str]) -> str:
+    if len(strs) == 0:
+        return ''
+
+    def findCommonPrefix(a, b):
+        ans = ''
+        i = 0
+        while i < min(len(a), len(b)):
+            if a[i] == b[i]:
+                ans += a[i]
+                i += 1
+            else:
+                break
+        return ans
+
+    standard = strs[0]
+    i = 1
+    while i < len(strs):
+        standard = findCommonPrefix(standard, strs[i])
+        if len(standard) == 0:
+            return standard
+        i += 1
+    return standard
