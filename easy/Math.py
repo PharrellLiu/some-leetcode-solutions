@@ -43,3 +43,19 @@ def isPowerOfThree(self, n: int) -> bool:
     if n == 243 or n == 59049 or n == 1594323 or n == 129140163 or n == 14348907:
         return True
     return (math.log(n, 3) % 1) == 0
+
+
+# Roman to Integer
+def romanToInt(self, s: str) -> int:
+    i = 0
+    ans = 0
+    dic = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    dic2 = {'IV': 4, 'IX': 9, 'XL': 40, 'XC': 90, 'CD': 400, 'CM': 900}
+    while i < len(s):
+        if i < len(s) - 1 and s[i:i + 2] in dic2:
+            ans += dic2[s[i:i + 2]]
+            i += 2
+        else:
+            ans += dic[s[i]]
+            i += 1
+    return ans
