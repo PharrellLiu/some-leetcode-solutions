@@ -4,7 +4,7 @@
 
 This is the collection of some leetcode problems' solutions. The problems are from the collections of top interview questions.
 
-The URLs:
+URLs:
 
 https://leetcode.com/explore/interview/card/top-interview-questions-easy/
 
