@@ -122,3 +122,4 @@ def hasCycle(self, head: ListNode) -> bool:
         fast = fast.next.next
         slow = slow.next
     return True
+# met in the interview of Bytedance
