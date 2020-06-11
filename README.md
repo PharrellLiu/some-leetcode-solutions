@@ -15,5 +15,3 @@ https://leetcode.com/explore/interview/card/top-interview-questions-hard/
 It is just a collection for myself, so don't take it seriously, it may have some issues, and the solutions may not be the best.
 
 If you find any issue or a better solution and wanna issue me, please.
-
-Anyway, God bless you, and God bless me to get a good job (LOL).
