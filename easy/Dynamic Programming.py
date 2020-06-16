@@ -15,6 +15,7 @@ def climbStairs(self, n: int) -> int:
         ans[1] = res
         i += 1
     return ans[1]
+# met in the interview of Bytedance
 
 
 # Best Time to Buy and Sell Stock
