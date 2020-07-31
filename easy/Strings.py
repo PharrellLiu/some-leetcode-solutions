@@ -137,11 +137,10 @@ def strStr(self, haystack: str, needle: str) -> int:
     while i < len(haystack) - len(needle) + 1:
         while i < len(haystack) and haystack[i] != needle[0]:
             i += 1
-        if i < len(haystack):
-            if haystack[i:i + len(needle)] == needle:
-                return i
-            else:
-                i += 1
+        if haystack[i:i + len(needle)] == needle:
+            return i
+        else:
+            i += 1
     return -1
 
 
