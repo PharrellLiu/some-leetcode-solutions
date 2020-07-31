@@ -25,7 +25,6 @@ def maxProfit(self, prices: List[int]) -> int:
         if prices[i] < prices[i - 1] and hold == 1:
             hold = 0
             profit += prices[i - 1] - buyingPrice
-            buyingPrice = 0
         elif prices[i] > prices[i - 1] and hold == 0:
             hold = 1
             buyingPrice = prices[i - 1]
@@ -54,7 +53,8 @@ def containsDuplicate(self, nums: List[int]) -> bool:
 def singleNumber(self, nums: List[int]) -> int:
     ans = nums[0]
     i = 1
-    while i < len(nums):
+    length = len(nums)
+    while i < length:
         # since x^x=0
         ans ^= nums[i]
         i += 1
@@ -63,19 +63,23 @@ def singleNumber(self, nums: List[int]) -> int:
 
 # Intersection of Two Arrays II
 def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
-    nums1.sort()
-    nums2.sort()
-    i, j = 0, 0
+    dic1 = {}
+    i = 0
+    len_nums = len(nums1)
+    while i < len_nums:
+        if nums1[i] not in dic1:
+            dic1[nums1[i]] = 1
+        else:
+            dic1[nums1[i]] += 1
+        i += 1
     ans = []
-    while i < len(nums1) and j < len(nums2):
-        if nums1[i] == nums2[j]:
-            ans.append(nums1[i])
-            i += 1
-            j += 1
-        elif nums1[i] > nums2[j]:
-            j += 1
-        elif nums1[i] < nums2[j]:
-            i += 1
+    len_nums = len(nums2)
+    i = 0
+    while i < len_nums:
+        if nums2[i] in dic1 and dic1[nums2[i]] > 0:
+            ans.append(nums2[i])
+            dic1[nums2[i]] -= 1
+        i += 1
     return ans
 
 
@@ -86,7 +90,6 @@ def plusOne(self, digits: List[int]) -> List[int]:
     while i > -1 and carry == 1:
         if digits[i] == 9:
             digits[i] = 0
-            carry = 1
         else:
             digits[i] += 1
             carry = 0
@@ -100,12 +103,16 @@ def plusOne(self, digits: List[int]) -> List[int]:
 def moveZeroes(self, nums: List[int]) -> None:
     i = 0
     noZero = 0
-    while i < len(nums):
+    length = len(nums)
+    while i < length:
         if nums[i] != 0:
-            temp = nums[i]
-            nums[i] = nums[noZero]
-            nums[noZero] = temp
-            noZero += 1
+            if i == noZero:
+                noZero += 1
+            else:
+                temp = nums[i]
+                nums[i] = nums[noZero]
+                nums[noZero] = temp
+                noZero += 1
         i += 1
 
 
