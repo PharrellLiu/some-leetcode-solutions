@@ -4,14 +4,12 @@ from typing import List
 # Remove Duplicates from Sorted Array
 def removeDuplicates(self, nums: List[int]) -> int:
     i = 1
-    length = len(nums)
-    while i < length:
+    while i < len(nums):
         if nums[i] == nums[i - 1]:
             nums.pop(i)
-            length -= 1
         else:
             i += 1
-    return length
+    return len(nums)
 
 
 # Best Time to Buy and Sell Stock II
@@ -20,8 +18,7 @@ def maxProfit(self, prices: List[int]) -> int:
     hold = 0
     buyingPrice = 0
     i = 1
-    length = len(prices)
-    while i < length:
+    while i < len(prices):
         if prices[i] < prices[i - 1] and hold == 1:
             hold = 0
             profit += prices[i - 1] - buyingPrice
@@ -53,8 +50,7 @@ def containsDuplicate(self, nums: List[int]) -> bool:
 def singleNumber(self, nums: List[int]) -> int:
     ans = nums[0]
     i = 1
-    length = len(nums)
-    while i < length:
+    while i < len(nums):
         # since x^x=0
         ans ^= nums[i]
         i += 1
@@ -65,17 +61,15 @@ def singleNumber(self, nums: List[int]) -> int:
 def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
     dic1 = {}
     i = 0
-    len_nums = len(nums1)
-    while i < len_nums:
+    while i < len(nums1):
         if nums1[i] not in dic1:
             dic1[nums1[i]] = 1
         else:
             dic1[nums1[i]] += 1
         i += 1
     ans = []
-    len_nums = len(nums2)
     i = 0
-    while i < len_nums:
+    while i < len(nums2):
         if nums2[i] in dic1 and dic1[nums2[i]] > 0:
             ans.append(nums2[i])
             dic1[nums2[i]] -= 1
@@ -103,8 +97,7 @@ def plusOne(self, digits: List[int]) -> List[int]:
 def moveZeroes(self, nums: List[int]) -> None:
     i = 0
     noZero = 0
-    length = len(nums)
-    while i < length:
+    while i < len(nums):
         if nums[i] != 0:
             if i == noZero:
                 noZero += 1
