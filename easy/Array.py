@@ -4,12 +4,14 @@ from typing import List
 # Remove Duplicates from Sorted Array
 def removeDuplicates(self, nums: List[int]) -> int:
     i = 1
-    while i < len(nums):
+    length = len(nums)
+    while i < length:
         if nums[i] == nums[i - 1]:
             nums.pop(i)
+            length -= 1
         else:
             i += 1
-    return len(nums)
+    return length
 
 
 # Best Time to Buy and Sell Stock II
@@ -18,7 +20,8 @@ def maxProfit(self, prices: List[int]) -> int:
     hold = 0
     buyingPrice = 0
     i = 1
-    while i < len(prices):
+    length = len(prices)
+    while i < length:
         if prices[i] < prices[i - 1] and hold == 1:
             hold = 0
             profit += prices[i - 1] - buyingPrice
